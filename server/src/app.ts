@@ -4,6 +4,7 @@ import { urlencoded, json } from 'body-parser';
 import cors from 'cors';
 import http from 'http';
 import { mokeData } from './moke';
+import { IUser } from './interfaces/user.interface';
 
 const url = process.env.CLIENT_URL || 'http://localhost';
 
@@ -16,14 +17,13 @@ app.use(cors({ origin: process.env.CLIENT_URL, optionsSuccessStatus: 200 }));
 app.use(json());
 app.use(urlencoded({ extended: true }));
 
-app.get('/getuser', async (req, res) => {
-    const email = req.query.email as string;
-    const number = req.query.number as string;
+app.post('/getuser', async (req, res) => {
+    const { email, number } = req.body;
 
     setTimeout(() => {
-        const filteredData = mokeData.filter((rec) => {
+        const filteredData: IUser[] = mokeData.filter((rec) => {
             if (email && number) {
-                return rec.email === email && rec.number === number;
+                return rec.email === email && rec.number === String(number);
             } else if (email && !number) {
                 return rec.email === email;
             }
@@ -33,5 +33,5 @@ app.get('/getuser', async (req, res) => {
         } else {
             res.status(400).send('there is no such user');
         }
-    }, 5000);
+    }, 2000);
 });

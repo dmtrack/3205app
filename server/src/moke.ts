@@ -1,4 +1,6 @@
-export const mokeData = [
+import { IUser } from './interfaces/user.interface';
+
+export const mokeData: IUser[] = [
     {
         email: 'jim@gmail.com',
         number: '221122',
