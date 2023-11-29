@@ -1,20 +1,27 @@
-import React from 'react';
-import './App.css';
+import { useState } from 'react';
+import '../src/styles/App.scss';
+import { IUser } from './types/types';
+import axios from 'axios';
+import Form from './components/Form/Form';
+import SearchResults from './components/SearchResults/SearchResults';
+import { useSearch } from './hooks/useSearch';
 
 const App = () => {
+    const [searchData, setSearchData] = useState<IUser | null>(null);
+
+    const { users, error, isLoading } = useSearch(searchData);
+    const onSubmit = (formData: IUser) => {
+        setSearchData(formData);
+    };
     return (
         <main className='App'>
             <section className='main_container'>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a
-                    className='App-link'
-                    href='https://reactjs.org'
-                    target='_blank'
-                    rel='noopener noreferrer'>
-                    Learn React
-                </a>
+                <Form onSubmit={onSubmit} />
+                {isLoading ? (
+                    <span>Загрузка...</span>
+                ) : (
+                    <SearchResults data={users} error={error} />
+                )}
             </section>
         </main>
     );

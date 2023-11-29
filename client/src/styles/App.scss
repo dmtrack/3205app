@@ -8,12 +8,12 @@ main {
             rgba(34, 34, 34, 0.3),
             rgba(34, 34, 34, 0.2)
         ),
-        url('../assets/images/hero1.jpg');
+        url('../../assets/images/hero1.jpg');
     background-size: cover;
 }
 
 .main_container {
-    width: 800px;
+    width: 400px;
     position: absolute;
 
     /* in relation to parent element size*/

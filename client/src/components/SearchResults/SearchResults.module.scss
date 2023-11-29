@@ -1,0 +1,19 @@
+.results {
+    height: calc(100vh - 700px);
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: rem;
+}
+
+li {
+    margin-top: 0.5rem;
+    list-style: none;
+}
+
+.error {
+    color: orangered;
+}
