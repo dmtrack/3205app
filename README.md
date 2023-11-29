@@ -13,7 +13,8 @@ this is true story...
 1.Установить зависимости npm i  
 2.Для корректной работы с CORS нужно создать параметры в .env - файле  
 CLIENT_URL='http://localhost'  
-CLIENT_PORT 3. npm run start  
+CLIENT_PORT=3000  
+3. npm run start  
 
 #### Client
 
