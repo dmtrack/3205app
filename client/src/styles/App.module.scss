@@ -23,3 +23,11 @@ main {
     /* in relation to element size*/
     transform: translate(-50%, -50%);
 }
+
+.loading {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+
+    color: grey;
+}

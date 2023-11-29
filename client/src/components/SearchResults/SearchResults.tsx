@@ -5,10 +5,11 @@ import { IValidationError } from '../../hooks/useSearch';
 
 interface SearchResultsProps {
     data: IUser[] | null;
+    loading: boolean;
     error?: string | null;
 }
 
-const SearchResults = ({ data, error }: SearchResultsProps) => {
+const SearchResults = ({ data, error, loading }: SearchResultsProps) => {
     return (
         <div className={styles.results}>
             <ul>
@@ -19,6 +20,7 @@ const SearchResults = ({ data, error }: SearchResultsProps) => {
                 ))}
             </ul>
             <span className={styles.error}>{error}</span>
+            {loading && <span className={styles.loading}>Загрузка...</span>}
         </div>
     );
 };

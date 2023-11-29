@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import '../src/styles/App.scss';
 import { IUser } from './types/types';
-import axios from 'axios';
 import Form from './components/Form/Form';
 import SearchResults from './components/SearchResults/SearchResults';
 import { useSearch } from './hooks/useSearch';
+import styles from './styles/App.module.scss';
 
 const App = () => {
     const [searchData, setSearchData] = useState<IUser | null>(null);
@@ -14,14 +13,10 @@ const App = () => {
         setSearchData(formData);
     };
     return (
-        <main className='App'>
-            <section className='main_container'>
+        <main>
+            <section className={styles.main_container}>
                 <Form onSubmit={onSubmit} />
-                {isLoading ? (
-                    <span>Загрузка...</span>
-                ) : (
-                    <SearchResults data={users} error={error} />
-                )}
+                <SearchResults data={users} error={error} loading={isLoading} />
             </section>
         </main>
     );

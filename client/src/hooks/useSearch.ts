@@ -22,7 +22,7 @@ export const useSearch = (searchData: IUser | null) => {
         if (!!searchData) {
             setUsers(null);
             setError(null);
-
+            setIsLoading(true);
             axios
                 .post(`${url}:${port}/user`, searchData, {
                     signal: abortController.signal,
