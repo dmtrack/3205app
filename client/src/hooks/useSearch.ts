@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { IUser } from '../types/types';
 import axios, { AxiosError } from 'axios';
 
-const url = 'http://localhost';
-const port = 8080;
+const url = process.env.REACT_APP_SERVER_URL;
+const port = process.env.REACT_APP_SERVER_PORT;
 
 export interface IValidationError {
     value: string;
