@@ -24,8 +24,8 @@ REACT_APP_SERVER_PORT = 8080
 3.npm start
 
 ## Stack
-
 -   react
 -   typescript
 -   sass
 -   node & express
+
