@@ -4,7 +4,7 @@ this is true story...
 
 ## Preview
 
-![Preview](./src/shared/assets/images/preview.png)
+![Preview](./client/assets/images/preview.png)
 
 ## Instructions
 
